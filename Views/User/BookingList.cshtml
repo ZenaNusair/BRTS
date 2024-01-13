@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BRTS_System.Models.Trip>
+
+@{
+    ViewData["Title"] = "BookingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>BookingList</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusNumber)
+                </td>
+                <td>
+                    <a asp-controller="User" asp-action="booktrip" asp-route-id="@item.TripID" class="btn btn-success">Book Trip</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
