@@ -1,2 +1,0 @@
-# BRTS
-BRTS project 
